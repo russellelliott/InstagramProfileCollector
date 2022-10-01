@@ -32,3 +32,12 @@ https://instagrambot.github.io/docs/en/For_developers.html#get_username_from_use
 
 ### Upload a photo and post it
 https://www.geeksforgeeks.org/post-a-picture-automatically-on-instagram-using-python/
+
+### Troubleshooting
+https://stackoverflow.com/questions/59858749/info-ds-user-id-error-happen-in-instabot
+
+## Instagrapi
+https://adw0rd.github.io/instagrapi/
+
+### User Stuff
+https://adw0rd.github.io/instagrapi/usage-guide/user.html
