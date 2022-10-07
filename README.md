@@ -1,4 +1,29 @@
 # InstagramProfileCollector
+This program pares through the folloers of the UCSC isntagram account as well as the people it follows. From there, it filters thhrough them, selecting the ones representing UCSC CS/Engineering clubs and organizations.
+
+## Usage
+1. Go through follower and following list
+2. Filtering
+- UCSC
+- Baskin
+- Slug
+- Engineer
+- Santa
+- Cruz
+- Computer
+- CS
+- Machine
+
+## Common "Errors"
+### ds_user
+This is caused from cookies interferring with the execution of the program. THis is solved by deleting the "config" folder every time the program is run
+
+### ERROR - Error unknown send request
+Honestly, this isn't really an error, as the program still runs in spite of this
+
+### Waiting 2.63 min. due to too many requests.
+Program may stop a few times due to too many requests
+
 
 ## Reading Data from Google Sheets
 ### Import/Read Google Sheet in Python
@@ -41,3 +66,8 @@ https://adw0rd.github.io/instagrapi/
 
 ### User Stuff
 https://adw0rd.github.io/instagrapi/usage-guide/user.html
+
+## Delete Files/Directories
+https://pynative.com/python-delete-files-and-directories/
+https://stackoverflow.com/questions/6996603/how-do-i-delete-a-file-or-folder-in-python
+https://docs.python.org/3/library/shutil.html#shutil.rmtree

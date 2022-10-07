@@ -5,6 +5,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv() #take environment variables from .env
 
+# importing shutil module
+import shutil
+
 #get the google sheet id
 id = os.environ.get("ID")#google sheet ID
 USERNAME = os.environ.get("USERNAME")
@@ -25,6 +28,7 @@ def getConnections(username):
     
 
 if __name__ == "__main__":
+    shutil.rmtree("config") #delete the config folder; remedy for some errors
     bot = Bot()
     bot.login(username=USERNAME, password=PASS) #need to login
     #initialize the dataframe
@@ -32,6 +36,7 @@ if __name__ == "__main__":
 
     #print(df) #print the dataframe
     #getConnections("ucsc")
-    user_id = bot.get_user_id_from_username("lego")
+    user_id = bot.get_user_id_from_username("ucsc")
     user_info = bot.get_user_info(user_id)
     print(user_info['biography'])
+    getConnections("ucsc")
