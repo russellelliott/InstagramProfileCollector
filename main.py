@@ -15,20 +15,33 @@ print(USERNAME)
 #USERNAME = "russell_2001"
 PASS = os.environ.get("PASS")
 
+#use instabot to get the user ids of the people following the account and the people the account follows
+#this takes several minutes to do. to remedy this, all the ids are saved to a txt file.
 def getConnections(username):
     #get follower/following ids
     followers = bot.get_user_followers(username)
     print(followers)
     following = bot.get_user_following(username)
     print(following)
+    
+    #write all the ids to a text file for future use
     #join together
-    connectionID = followers.append(following)
-    connections = [bot.get_username_from_user_id(i) for i in connectionID]
-    print(connections)
+    connectionID = followers + following
+    fileName = username + ".txt"
+    with open(fileName, "w") as f:
+        for i in connectionID:
+            f.write(i + "\n") #to write line, manually need to add newline character
+            #username = bot.get_username_from_user_id(i) #get the username
+            
+        
+        
+    #connections = [bot.get_username_from_user_id(i) for i in connectionID]
+    #print(connections)
     
 
 if __name__ == "__main__":
-    shutil.rmtree("config") #delete the config folder; remedy for some errors
+    if(os.path.exists("config")):
+        shutil.rmtree("config") #delete the config folder; remedy for some errors
     bot = Bot()
     bot.login(username=USERNAME, password=PASS) #need to login
     #initialize the dataframe

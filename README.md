@@ -24,6 +24,9 @@ Honestly, this isn't really an error, as the program still runs in spite of this
 ### Waiting 2.63 min. due to too many requests.
 Program may stop a few times due to too many requests
 
+### Detecting unusual activity (HACKED_LOCK)
+Excessive amounts of requests may cause your account to go into some sort of "lockdown"? All I had to do was get a security code and confirm it's me.
+
 
 ## Reading Data from Google Sheets
 ### Import/Read Google Sheet in Python
@@ -71,3 +74,12 @@ https://adw0rd.github.io/instagrapi/usage-guide/user.html
 https://pynative.com/python-delete-files-and-directories/
 https://stackoverflow.com/questions/6996603/how-do-i-delete-a-file-or-folder-in-python
 https://docs.python.org/3/library/shutil.html#shutil.rmtree
+
+## Check if directory exists
+https://www.geeksforgeeks.org/python-check-if-a-file-or-directory-exists-2/
+
+## Writing to a file
+https://www.pythontutorial.net/python-basics/python-write-text-file/
+
+## Merge two lists
+https://thispointer.com/python-how-to-merge-two-or-more-lists/
