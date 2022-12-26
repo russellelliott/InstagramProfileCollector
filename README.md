@@ -16,7 +16,7 @@ This program pares through the folloers of the UCSC isntagram account as well as
 
 ## Common "Errors"
 ### ds_user
-This is caused from cookies interferring with the execution of the program. THis is solved by deleting the "config" folder every time the program is run
+This is caused from cookies interferring with the execution of the program. This is solved by deleting the "config" folder every time the program is run
 
 ### ERROR - Error unknown send request
 Honestly, this isn't really an error, as the program still runs in spite of this
@@ -83,3 +83,6 @@ https://www.pythontutorial.net/python-basics/python-write-text-file/
 
 ## Merge two lists
 https://thispointer.com/python-how-to-merge-two-or-more-lists/
+
+## Write data to csv in Python
+https://www.pythontutorial.net/python-basics/python-write-csv-file/

@@ -18,6 +18,40 @@ PASS = os.environ.get("PASS")
 #use instabot to get the user ids of the people following the account and the people the account follows
 #this takes several minutes to do. to remedy this, all the ids are saved to a txt file.
 def getConnections(username):
+    followers = bot.get_user_followers(username)
+    print(followers)
+    following = bot.get_user_following(username)
+    print(following)
+    #write all the ids to a text file for future use
+    #join together
+    connectList = followers + following
+    
+    #make a csv file; add the username and their id. that way, getting either is easy when filtering data
+    fileName = username + "-user-data" + ".csv" #ex: ucsc-user-data.csv
+    
+    header = ['name', 'id']
+    
+    #csv stuff
+    import csv
+    
+    with open(fileName, 'w', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+        # write the header
+        writer.writerow(header)
+        
+        for id in connectList:
+            #get the username from the id
+            name = bot.get_username_from_user_id(id)
+            data = [name, id]
+            # write the data
+            writer.writerow(data)
+
+    # close the file
+    f.close()
+
+    
+
+def getConnections2(username):
     #get follower/following ids
     followers = bot.get_user_followers(username)
     print(followers)
