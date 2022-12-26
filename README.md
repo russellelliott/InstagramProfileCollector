@@ -14,6 +14,11 @@ This program pares through the folloers of the UCSC isntagram account as well as
 - CS
 - Machine
 
+## Login Notifications
+Instagrapi will report a new login from a XiaoMI device in your location. That is the API.
+
+## Abandonment of Instabot
+
 ## Common "Errors"
 ### ds_user
 This is caused from cookies interferring with the execution of the program. This is solved by deleting the "config" folder every time the program is run
@@ -67,7 +72,9 @@ https://stackoverflow.com/questions/59858749/info-ds-user-id-error-happen-in-ins
 ## Instagrapi
 https://adw0rd.github.io/instagrapi/
 
-### User Stuff
+https://github.com/adw0rd/instagrapi
+
+### User Methods
 https://adw0rd.github.io/instagrapi/usage-guide/user.html
 
 ## Delete Files/Directories
