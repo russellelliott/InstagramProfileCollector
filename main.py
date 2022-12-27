@@ -21,13 +21,35 @@ def text_from_html(body):
     visible_texts = filter(tag_visible, texts)  
     return u" ".join(t.strip() for t in visible_texts)
 
-html = urllib.request.urlopen(baseURL + 'ucsc').read()
-#print(html)
+def searchQuery(username):
+    html = urllib.request.urlopen(baseURL + username).read()
+    #print(html)
 
-object = json.loads(html)
-print(object)
-keys = object.keys()
-print(keys)
+    object = json.loads(html)
+    #print(object)
+    #keys = object.keys()
+    #print(keys)
 
-print('a user')
-print(object['users'][1]['user']['username'])
+    print('List of Users')
+    #print(object['users'][1]['user']['username'])
+    i=0
+    while True:
+        try:
+            print(object['users'][i]['user']['username'])
+        except:
+            break
+        i+=1
+
+searchQuery('ucsc')
+searchQuery('ucscacm')
+searchQuery('dscucsc')
+searchQuery('baskinengineering')
+
+def ID(username):
+    html = urllib.request.urlopen(baseURL + username).read()
+    #print(html)
+
+    object = json.loads(html)
+    print(object['users'][0]['user']['pk'])
+
+ID('ucsc')
