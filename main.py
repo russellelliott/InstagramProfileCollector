@@ -1,74 +1,33 @@
-import pandas as pd #for database read/write
-from instagrapi import Client
+from bs4 import BeautifulSoup
+from bs4.element import Comment
+import urllib.request
 
-import os
-from dotenv import load_dotenv
-load_dotenv() #take environment variables from .env
+#include json library
+import json
 
-# importing shutil module
-import shutil
+baseURL = "https://www.instagram.com/web/search/topsearch/?query="
 
-#get the google sheet id
-id = os.environ.get("ID")#google sheet ID
-USERNAME = os.environ.get("USERNAME")
-print(USERNAME)
-PASS = os.environ.get("PASS")
- 
-def getConnections(username):
-    #print(username)
-    
-    #get list of followers and following
-    followers = cl.user_followers(username)
-    print(followers)
-    following = cl.user_following(username)
-    print(following)
-    
-    #write all the ids to a text file for future use
-    #join together
-    connectList = followers + following
-    
-    #make a csv file; add the username and their id. that way, getting either is easy when filtering data
-    fileName = username + "-user-data" + ".csv" #ex: ucsc-user-data.csv
-    
-    header = ['name', 'id']
-    
-    #csv stuff
-    import csv
-    
-    with open(fileName, 'w', encoding='UTF8', newline='') as f:
-        writer = csv.writer(f)
-        # write the header
-        writer.writerow(header)
-        
-        for id in connectList:
-            #get the username from the id
-            name = cl.username_from_user_id(id)
-            data = [name, id]
-            # write the data
-            writer.writerow(data)
+def tag_visible(element):
+    if element.parent.name in ['style', 'script', 'head', 'title', 'meta', '[document]']:
+        return False
+    if isinstance(element, Comment):
+        return False
+    return True
 
-    # close the file
-    f.close()
-    
 
-if __name__ == "__main__":
-    if(os.path.exists("config")):
-        shutil.rmtree("config") #delete the config folder; remedy for some errors
-    
-    print("INSTAGRAM PROFILE COLLECTOR")
-    print("Type 'collect' to collect the IDs of people following the UCSC Instagram page")
-    print("Type 'parse' to parse through the follower IDs")
-    action = input("Select action: ")
-    
-    if(action == "collect"):
+def text_from_html(body):
+    soup = BeautifulSoup(body, 'html.parser')
+    texts = soup.findAll(text=True)
+    visible_texts = filter(tag_visible, texts)  
+    return u" ".join(t.strip() for t in visible_texts)
 
-        cl = Client()
-        cl.login(USERNAME, PASS)
+html = urllib.request.urlopen(baseURL + 'ucsc').read()
+#print(html)
 
-        user_id = cl.user_id_from_username("ucsc")
-        print(user_id)
-        getConnections("ucsc")
-    elif(action == "parse"):
-        print("will parse")
-    else:
-        print("Invalid action. Exiting program")
+object = json.loads(html)
+print(object)
+keys = object.keys()
+print(keys)
+
+print('a user')
+print(object['users'][1]['user']['username'])

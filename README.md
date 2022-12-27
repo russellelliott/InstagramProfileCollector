@@ -1,5 +1,5 @@
 # InstagramProfileCollector
-This program pares through the folloers of the UCSC isntagram account as well as the people it follows. From there, it filters thhrough them, selecting the ones representing UCSC CS/Engineering clubs and organizations.
+This program pares through the folloers of the UCSC instagram account as well as the people it follows. From there, it filters thhrough them, selecting the ones representing UCSC CS/Engineering clubs and organizations.
 
 ## Usage
 1. Go through follower and following list
@@ -13,6 +13,9 @@ This program pares through the folloers of the UCSC isntagram account as well as
 - Computer
 - CS
 - Machine
+
+## Methods
+Due to complications that ensued on December 26, 2022 in which my account was suspended twice (ws able to resolve both times via my email and phone number), I decided to persue an implementation not persuing an API.
 
 ## Login Notifications
 Instagrapi will report a new login from a XiaoMI device in your location. That is the API.
