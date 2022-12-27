@@ -15,7 +15,41 @@ print(USERNAME)
 PASS = os.environ.get("PASS")
  
 def getConnections(username):
-    print(username)
+    #print(username)
+    
+    #get list of followers and following
+    followers = cl.user_followers(username)
+    print(followers)
+    following = cl.user_following(username)
+    print(following)
+    
+    #write all the ids to a text file for future use
+    #join together
+    connectList = followers + following
+    
+    #make a csv file; add the username and their id. that way, getting either is easy when filtering data
+    fileName = username + "-user-data" + ".csv" #ex: ucsc-user-data.csv
+    
+    header = ['name', 'id']
+    
+    #csv stuff
+    import csv
+    
+    with open(fileName, 'w', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+        # write the header
+        writer.writerow(header)
+        
+        for id in connectList:
+            #get the username from the id
+            name = cl.username_from_user_id(id)
+            data = [name, id]
+            # write the data
+            writer.writerow(data)
+
+    # close the file
+    f.close()
+    
 
 if __name__ == "__main__":
     if(os.path.exists("config")):

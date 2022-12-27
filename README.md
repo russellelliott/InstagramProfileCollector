@@ -62,6 +62,8 @@ Followers vs Following
 ### Get username from id
 https://instagrambot.github.io/docs/en/For_developers.html#get_username_from_user_id
 
+### Direct message someone
+https://stackoverflow.com/questions/73178091/send-direct-message-using-instagrapi
 
 ### Upload a photo and post it
 https://www.geeksforgeeks.org/post-a-picture-automatically-on-instagram-using-python/
